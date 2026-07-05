@@ -8,9 +8,15 @@
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "build:apk": "npm run build && npx cap copy && npx cap open android"
   },
   "dependencies": {
+    "@capacitor/app": "^5.0.6",
+    "@capacitor/camera": "^5.0.6",
+    "@capacitor/core": "^5.7.0",
+    "@capacitor/filesystem": "^5.1.2",
+    "@capacitor/geolocation": "^5.0.7",
     "@google/genai": "^2.4.0",
     "@tailwindcss/vite": "^4.1.14",
     "@vitejs/plugin-react": "^5.0.4",
@@ -23,6 +29,7 @@
     "motion": "^12.23.24"
   },
   "devDependencies": {
+    "@capacitor/cli": "^5.7.0",
     "@types/node": "^22.14.0",
     "autoprefixer": "^10.4.21",
     "esbuild": "^0.25.0",

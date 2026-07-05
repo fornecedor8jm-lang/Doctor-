@@ -1,10 +1,16 @@
-import {StrictMode} from 'react';
-import {createRoot} from 'react-dom/client';
-import App from './App.tsx';
-import './index.css';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.tsx'
+import './index.css'
+import { Capacitor } from '@capacitor/core'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+// Inicializar Capacitor para APIs nativas
+if (Capacitor.isNativePlatform()) {
+  console.log('Executando em plataforma nativa:', Capacitor.getPlatform())
+}
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
     <App />
-  </StrictMode>,
-);
+  </React.StrictMode>,
+)
