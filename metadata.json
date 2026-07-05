@@ -1,0 +1,6 @@
+{
+  "name": "Doctor+",
+  "description": "Plataforma de fãs para assistir e organizar episódios clássicos de Doctor Who com legendas em português.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
