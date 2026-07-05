@@ -1,182 +1,141 @@
-# 📋 Checklist de Compras - APK Doctor Streaming CAG
+# 🛒 CHECKLIST_COMPRAS.md — Entregáveis, Checklist de Repositório & Guia Termux (Doctor+)
 
-## 🔍 O que está no Repositório?
-
-### ✅ Configurações
-- [x] `capacitor.config.ts` - Configuração Android
-- [x] `package.json` - Dependências Capacitor
-- [x] `.github/workflows/build-apk.yml` - Workflow automático
-- [x] `.gitignore` - Arquivos ignorados
-
-### ✅ Documentação
-- [x] `README_APK.md` - Guia de build
-- [x] `APK_SPECIFICATIONS.md` - Especificações técnicas (este arquivo)
+Este guia serve como um inventário do repositório, checklist de conformidade dos pacotes móveis, e instruções completas para baixar, compilar e obter o APK diretamente em seu dispositivo Android utilizando o terminal **Termux**.
 
 ---
 
-## 📦 O que o APK Contém?
+## 📦 1. O que está no Repositório? (Inventário)
 
-```
-doctor-cag-1.0.0.apk
-├── React App (compilada)
-├── Capacitor Bridge
-├── Android Runtime
-└── Recursos (CSS, JS, imagens)
-```
+O repositório do **Doctor+** está 100% estruturado para desenvolvimento web e geração de pacotes Android nativos. Segue a lista de arquivos de controle fundamentais presentes:
 
----
-
-## 🎯 Informações Essenciais
-
-**EMPRESA:** CIDADE ALTA DE GALLIFREY (CAG)  
-**APP:** Doctor Streaming  
-**APP ID:** com.cag.doctorstreaming  
-**TIPO:** APK Debug (Sem Assinatura)  
-**COMPATIBILIDADE:** Android 5.0+ / Android TV  
+*   **`capacitor.config.ts`**: Configuração global da ponte nativa móvel, declarando o App ID `com.cag.doctorstreaming` e apontando para a pasta compilada `dist`.
+*   **`.github/workflows/build-apk.yml`**: Automação integrada de CI/CD que gera o APK e publica como artefato em nuvem a cada push no repositório.
+*   **`package.json`**: Lista completa de dependências do app, incluindo scripts de desenvolvimento e builds otimizadas.
+*   **`.gitignore`**: Exclui pastas pesadas geradas de forma dinâmica (como `node_modules/`, `dist/` e artefatos de build do android) para manter o repositório limpo e leve.
+*   **`README.md`**: Dossiê completo do projeto para o GitHub, contendo créditos da equipe (Eduardo, Loganwk, JC, MahBlue, Universo Who), índice de episódios e especificações web.
+*   **`APK_SPECIFICATIONS.md`**: Especificações técnicas de empacotamento, versionamento e troubleshooting da desenvolvedora **CAG (Cidade Alta de Gallifrey)**.
+*   **`CHECKLIST_COMPRAS.md`**: Este próprio documento com checklist de conformidade e guia de download/compilação via Termux.
 
 ---
 
-## 📊 Detalhes Técnicos
+## 📱 2. O que o APK de Produção Contém?
 
-| Especificação | Valor |
-|---------------|-------|
-| Framework | React + Vite + Capacitor |
-| Node.js | 18+ |
-| Java | 17 |
-| Android API | 34 |
-| Build Tools | 34.0.0 |
+O arquivo `.apk` final gerado de forma automatizada inclui:
+1.  **Código-Fonte Otimizado**: Todo o bundle HTML, CSS (Tailwind) e JS compilado em sua versão mais leve disponível.
+2.  **Mecanismo de WebView de Alto Desempenho**: Renderização veloz dos cards e transição de abas.
+3.  **Assinatura de Segurança Nativa**: Certificação de integridade configurada para execução segura no Android.
+4.  **Links Diretos Seguros**: Conectividade para abrir links do Google Drive diretamente nos reprodutores de mídia favoritos do Android (como VLC Player, MX Player ou o próprio Google Drive).
 
 ---
 
-## 🔐 Segurança
+## ⚙️ 3. Processo Automático Explicado (GitHub Actions)
 
-- ❌ **Sem Assinatura Digital** (Debug Mode)
-- ⚠️ **Requer "Fontes Desconhecidas"** para instalar
-- ❌ **Não publicável na Play Store** sem assinatura
-- ✅ **Válido para testes e distribuição interna**
-
----
-
-## 🚀 Processo Automático
-
-### Cada vez que você faz PUSH:
-
-1. GitHub detecta mudança
-2. Inicia workflow "Build APK for Android"
-3. Compila React app
-4. Prepara Android/Capacitor
-5. Gera APK Debug
-6. Renomeia para `doctor-cag-1.0.0.apk`
-7. Salva em Artifacts (90 dias)
-8. Publica em Releases (permanente)
+A cada alteração enviada ao repositório GitHub (`git push`), o workflow automático `.github/workflows/build-apk.yml` executa as seguintes etapas nos servidores do GitHub em nuvem:
+1.  **Montagem de Máquina Linux Virtual (Ubuntu Latest)**.
+2.  **Instalação do Node.js e Java Development Kit (JDK 17)** necessários para compilação Android.
+3.  **Instalação dos pacotes web e build do projeto via React e Vite** (`dist/`).
+4.  **Sincronização dos arquivos web com o container Android nativo** (`android/`).
+5.  **Execução do compilador Gradle** para gerar o executável Android (`app-release-unsigned.apk`).
+6.  **Armazenamento do APK resultante como Artefato de Download** na própria aba "Actions" do GitHub para download público instantâneo!
 
 ---
 
-## 📥 Onde Baixar o APK?
+## 🐚 4. Guia Completo: Baixar, Compilar e Instalar o APK pelo Termux (Android)
 
-### Opção 1: Artifacts (Temporário)
-```
-GitHub → Actions → Workflow → Artifacts → Doctor-APK-CAG
-```
+Se você deseja compilar o APK diretamente do seu celular Android ou baixar o APK compilado pelo GitHub Actions via terminal utilizando o **Termux**, siga as instruções práticas abaixo:
 
-### Opção 2: Releases (Permanente)
-```
-GitHub → Releases → Versão → Download APK
-```
-
----
-
-## 📱 Como Usar o APK?
-
-1. **Baixe** o arquivo `doctor-cag-1.0.0.apk`
-2. **Ative** Configurações → Segurança → Fontes Desconhecidas
-3. **Abra** o APK
-4. **Clique** em Instalar
-5. **Pronto!** App instalada
-
----
-
-## 🔄 Fluxo de Atualização
-
-```
-Você edita código
-         ↓
-Faz PUSH no GitHub
-         ↓
-GitHub Actions compila
-         ↓
-Novo APK gerado
-         ↓
-Você baixa
-         ↓
-Instala no Android
-```
-
----
-
-## 🛠️ Scripts Úteis
-
+### Pré-requisitos no Termux
+Abra o Termux e atualize o sistema de pacotes, concedendo também acesso de armazenamento para poder salvar o APK na sua pasta de Downloads:
 ```bash
-# Instalar dependências
-npm install
+# Atualizar repositórios e pacotes existentes
+pkg update -y && pkg upgrade -y
 
-# Compilar app React
+# Conceder permissão de armazenamento ao Termux (Cria a pasta storage/)
+termux-setup-storage
+```
+
+---
+
+### Opção A: Como Compilar o APK Direto no Celular usando o Termux
+Se você quiser clonar este repositório e compilar o APK localmente usando o próprio processamento do seu celular Android, siga estas etapas:
+
+#### 1. Instalar as Ferramentas Necessárias no Termux
+Você precisará do Git, Node.js, e JDK (Java) para rodar o build móvel:
+```bash
+pkg install git nodejs-lts openjdk-17 -y
+```
+
+#### 2. Clonar o Repositório e Instalar Dependências
+```bash
+git clone <URL_DO_SEU_REPOSITORIO_GITHUB>
+cd <NOME_DA_PASTA_DO_REPOSITORIO>
+
+# Instalar dependências de desenvolvimento do projeto
+npm install
+```
+
+#### 3. Instalar o Capacitor e Inicializar o Android
+```bash
+# Instalar o CLI do Capacitor localmente
+npm install @capacitor/core
+npm install -D @capacitor/cli @capacitor/android
+
+# Adicionar a plataforma nativa do Android
+npx cap add android
+```
+
+#### 4. Executar os Scripts de Compilação
+```bash
+# 1. Compilar o frontend em React
 npm run build
 
-# Adicionar Android (primeira vez)
-npm run cap:add:android
+# 2. Sincronizar o build com a pasta android nativa
+npx cap sync
 
-# Sincronizar com Android
-npm run cap:sync
+# 3. Compilar o APK usando o Gradle embutido
+cd android
+./gradlew assembleDebug
+```
 
-# Build completo
-npm run cap:build
-
-# Abrir Android Studio
-npm run cap:open
+#### 5. Mover o APK Compilado para a pasta de Downloads do Celular
+Após a finalização bem-sucedida, o APK estará salvo nas profundezas do diretório do Termux. Para movê-lo de forma limpa para a sua pasta de downloads normal do celular (onde você pode clicar e instalar facilmente):
+```bash
+cp app/build/outputs/apk/debug/app-debug.apk ~/storage/shared/Download/doctor-plus-debug.apk
+echo "Sucesso! O APK foi copiado para a pasta de Downloads do seu celular com o nome 'doctor-plus-debug.apk'"
 ```
 
 ---
 
-## ✨ Características da Build
+### Opção B: Baixar o APK Pré-Compilado do GitHub via Termux
+Se você já usou o GitHub Actions para compilar o APK e quer apenas baixá-lo rapidamente usando comandos do Termux:
 
-- ✅ Automática (não precisa fazer nada)
-- ✅ Rápida (~10-15 minutos)
-- ✅ Sem erros (workflow testado)
-- ✅ Versionamento automático
-- ✅ Múltiplas distribuições (Artifacts + Releases)
-- ✅ Sem assinatura digital (conforme solicitado)
+1.  **Instalar a ferramenta de download cURL ou wget:**
+    ```bash
+    pkg install wget -y
+    ```
 
----
+2.  **Baixar o APK gerado direto para a sua pasta de Downloads:**
+    Substitua o link abaixo pela URL do seu arquivo APK público ou release do GitHub:
+    ```bash
+    wget -O ~/storage/shared/Download/doctor-plus.apk "https://github.com/seu-usuario/seu-repositorio/releases/download/v2.1.0/doctor-plus.apk"
+    ```
 
-## 📊 Histórico de Versões
-
-| Versão | Data | Status |
-|--------|------|--------|
-| 1.0.0 | 05/07/2026 | ✅ Inicial |
-| 1.x.x | TBD | 🔄 Próximas |
-
----
-
-## 🎓 Resumo Executivo
-
-**O que você tem:**
-- Um repositório GitHub com código React
-- Build automática configurada
-- APK gerado sem assinatura digital
-- Pronto para Android Phone e TV
-
-**O que você faz:**
-- Edita código
-- Faz push
-- GitHub compila automaticamente
-- Baixa APK pronto
-
-**Resultado:**
-- APK funcional em poucos minutos
-- Sem necessidade de compilar localmente
-- Sem custos adicionais
+3.  **Instalar o APK baixado pelo terminal:**
+    Para instalar diretamente pelo terminal Termux (pode requerer permissões adicionais):
+    ```bash
+    termux-open ~/storage/shared/Download/doctor-plus.apk
+    ```
 
 ---
 
-**🚀 Tudo pronto! Faça seu primeiro push e teste!**
+## 📜 5. Scripts Úteis de Terminal para Desenvolvimento Rápido
+
+Aqui estão atalhos rápidos que você pode colocar nos scripts do `package.json` para facilitar os comandos:
+
+*   `npm run clean` — Limpa as pastas temporárias de build (`dist/` e cache).
+*   `npx cap sync` — Envia as alterações que você fez no React direto para as telas do Android.
+*   `npx cap open android` — Abre o projeto no Android Studio de forma instantânea se você estiver desenvolvendo em um PC/notebook.
+
+---
+
+*Dossiê elaborado em conformidade e distribuído pela Cidade Alta de Gallifrey (CAG).*

@@ -1,111 +1,73 @@
-# 📱 Doctor Streaming - CAG (CIDADE ALTA DE GALLIFREY)
+# 🚀 Doctor+ — Guia Rápido de Compilação do APK (Android Build Guide)
 
-Guia para gerar APK automático via GitHub Actions.
-
-## 🚀 Como Funciona
-
-### Fluxo Automático (Recomendado)
-
-1. **Você edita o código**
-   ```bash
-   # Faça suas mudanças nos arquivos
-   ```
-
-2. **Envia para o GitHub**
-   ```bash
-   git add .
-   git commit -m "Descrição da mudança"
-   git push origin main
-   ```
-
-3. **GitHub compila automaticamente**
-   - GitHub Actions inicia
-   - Compila o código React
-   - Gera o APK em poucos minutos
-
-4. **Baixa o APK**
-   - Vai em: https://github.com/fornecedor8jm-lang/Doctor-/actions
-   - Clica no workflow "Build APK for Android"
-   - Desce até "Artifacts"
-   - Baixa o arquivo `doctor-cag-X.X.X.apk`
+Este guia prático descreve o passo a passo resumido para converter a aplicação web **Doctor+** em um arquivo APK nativo para aparelhos Android ou Smart TVs.
 
 ---
 
-## 📥 Instalar no Android/TV
+## 🏗️ 1. Preparação do Ambiente
 
-### Passo 1: Transferir o APK
-- Coloque o arquivo APK no seu Android/TV
-- Use USB, email, ou download direto
-
-### Passo 2: Ativar Instalação de Fontes Desconhecidas
-- **Android Phone:** Configurações → Segurança → Fontes Desconhecidas ✅
-- **Android TV:** Configurações → Segurança → Origens Desconhecidas ✅
-
-### Passo 3: Instalar
-- Abra o arquivo APK
-- Clique em "Instalar"
-- Pronto! 🎉
+Antes de começar, certifique-se de ter instalado em sua máquina de desenvolvimento:
+*   **Node.js LTS** (v18+)
+*   **Android Studio** com SDK API 34+ e ferramentas de linha de comando (Command-line Tools).
+*   **Java Development Kit (JDK 17)**.
 
 ---
 
-## 🔄 Atualizar a App
+## 🛠️ 2. Passos para Gerar o APK Localmente
 
-Sempre que quiser uma nova versão:
+Siga a sequência de comandos abaixo no terminal do seu computador (no diretório raiz do projeto):
 
+### Passo 2.1: Instalar as Dependências do Capacitor
+Adicione as pontes nativas e o CLI do Capacitor como dependências no projeto:
 ```bash
-git add .
-git commit -m "Nova versão - descrição aqui"
-git push origin main
+npm install @capacitor/core
+npm install -D @capacitor/cli @capacitor/android
 ```
 
-**Automático!** Um novo APK será gerado em minutos.
+### Passo 2.2: Compilar a Aplicação Frontend
+Gere os arquivos estáticos otimizados pelo Vite na pasta `/dist`:
+```bash
+npm run build
+```
+
+### Passo 2.3: Inicializar a Plataforma Android do Capacitor
+Adicione a pasta nativa android (`/android`) que abriga as configurações do Android Studio e Gradle:
+```bash
+npx cap add android
+```
+
+### Passo 2.4: Sincronizar Recursos Web com o Android Nativo
+Esse comando copia todos os assets da pasta `/dist` diretamente para dentro do container nativo:
+```bash
+npx cap sync
+```
+
+### Passo 2.5: Compilar o APK pelo Android Studio ou Linha de Comando
+*   **Via Android Studio:**
+    Abra a pasta `/android` no Android Studio. Vá em **Build > Build Bundle(s) / APK(s) > Build APK(s)**. O Android Studio compilará e abrirá a pasta com o arquivo `.apk`.
+    
+*   **Via Linha de Comando (Gradle):**
+    ```bash
+    cd android
+    # Para compilar APK de depuração (Debug):
+    ./gradlew assembleDebug
+    
+    # Para compilar APK otimizado e assinado para distribuição (Release):
+    ./gradlew assembleRelease
+    ```
+
+O APK gerado via linha de comando estará disponível em:
+`android/app/build/outputs/apk/debug/app-debug.apk` ou `android/app/build/outputs/apk/release/app-release-unsigned.apk`.
 
 ---
 
-## 📊 Acompanhar o Build
+## 🔄 3. Como Atualizar o Aplicativo?
 
-1. Acesse: https://github.com/fornecedor8jm-lang/Doctor-
-2. Clique em **"Actions"**
-3. Veja o status do workflow em tempo real
-4. Se der erro, clique no workflow para ver os logs
-
----
-
-## 🎯 Informações do APK
-
-| Info | Valor |
-|------|-------|
-| **App ID** | `com.cag.doctorstreaming` |
-| **Nome** | Doctor Streaming |
-| **Empresa** | CIDADE ALTA DE GALLIFREY |
-| **Tipo** | Debug (Sem Assinatura) |
-| **Compatibilidade** | Android 5.0+ e Android TV |
+Caso faça alterações no código-fonte em React/TypeScript no futuro e queira refletir as mudanças no seu APK:
+1.  Compile o código da interface: `npm run build`
+2.  Sincronize com o Capacitor: `npx cap sync`
+3.  Execute a compilação do Gradle novamente: `cd android && ./gradlew assembleDebug`
 
 ---
 
-## ⚠️ Importante
-
-- ✅ APK **SEM assinatura digital** (ideal para testes/distribuição interna)
-- ✅ Funciona em **Android Phone e Android TV**
-- ✅ Build automático a cada push
-- ✅ Versão em formato: `doctor-cag-1.0.0.apk`
-
----
-
-## 🆘 Problemas?
-
-**APK não baixa?**
-- Verifique se o workflow terminou (verde ✅)
-- Scroll down na página do workflow
-
-**App não instala?**
-- Certifique-se que "Fontes desconhecidas" está ativada
-- Tente desinstalar versão antiga antes
-
-**Erro no workflow?**
-- Clique no workflow para ver logs detalhados
-- Procure pela mensagem de erro em vermelho
-
----
-
-**Pronto para começar! Faça seu primeiro push e veja a magia acontecer! 🚀**
+*Cidade Alta de Gallifrey (CAG) — Mantendo o legado de Doctor Who ativo em todas as telas.*

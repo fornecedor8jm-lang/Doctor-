@@ -1,17 +1,10 @@
-import type { CapacitorConfig } from '@capacitor/cli';
-
-const config: CapacitorConfig = {
-  appId: 'com.doctor.streaming',
-  appName: 'Doctor Streaming',
+const config = {
+  appId: 'com.cag.doctorstreaming',
+  appName: 'Doctor+',
   webDir: 'dist',
   server: {
     androidScheme: 'https'
-  },
-  plugins: {
-    SplashScreen: {
-      launchShowDuration: 0,
-    },
-  },
+  }
 };
 
 export default config;
