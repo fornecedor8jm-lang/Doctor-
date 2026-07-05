@@ -80,7 +80,13 @@ jobs:
       working-directory: android
       run: |
         chmod +x ./gradlew
-        ./gradlew assembleRelease -PkeystoreFile=app/release.keystore -PkeystorePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }} -PkeyAlias=${{ secrets.ANDROID_KEY_ALIAS }} -PkeyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}
+        if [ -f app/release.keystore ]; then
+          echo "Found keystore — building signed release APK"
+          ./gradlew assembleRelease -PkeystoreFile=app/release.keystore -PkeystorePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }} -PkeyAlias=${{ secrets.ANDROID_KEY_ALIAS }} -PkeyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}
+        else
+          echo "No keystore found — building unsigned release APK"
+          ./gradlew assembleRelease
+        fi
 
     - name: Build APK (Debug)
       id: build_debug
@@ -110,11 +116,21 @@ jobs:
         echo "===== Build outputs ====="
         ls -R android/app/build/outputs || true
 
-    - name: Create Release
+    - name: Create Release (on tag)
       if: startsWith(github.ref, 'refs/tags/v')
       uses: softprops/action-gh-release@v1
       with:
         files: |
           android/app/build/outputs/apk/release/app-release.apk
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Create/Update latest Release (for direct download)
+      if: steps.build_release.outcome == 'success' && github.ref == 'refs/heads/main'
+      uses: ncipollo/release-action@v1
+      with:
+        tag: latest
+        name: latest
+        files: android/app/build/outputs/apk/release/app-release.apk
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
