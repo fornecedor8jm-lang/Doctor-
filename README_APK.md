@@ -1,152 +1,111 @@
-# 📱 Doctor Streaming - Build APK para Android
+# 📱 Doctor Streaming - CAG (CIDADE ALTA DE GALLIFREY)
 
-Guia completo para gerar e distribuir o APK da app Doctor Streaming.
+Guia para gerar APK automático via GitHub Actions.
 
-## 🚀 Início Rápido
+## 🚀 Como Funciona
 
-### Opção 1: Build Automático (GitHub Actions)
-1. Faça push para a branch `main`
-2. O workflow automático gera o APK
-3. Baixe na aba **Actions** ou **Releases**
+### Fluxo Automático (Recomendado)
 
-### Opção 2: Build Local
+1. **Você edita o código**
+   ```bash
+   # Faça suas mudanças nos arquivos
+   ```
 
-#### Pré-requisitos
-- Node.js 18+
-- Java 17+
-- Android SDK
-- Capacitor CLI
+2. **Envia para o GitHub**
+   ```bash
+   git add .
+   git commit -m "Descrição da mudança"
+   git push origin main
+   ```
 
-#### Passos
+3. **GitHub compila automaticamente**
+   - GitHub Actions inicia
+   - Compila o código React
+   - Gera o APK em poucos minutos
 
-```bash
-# 1. Instalar dependências
-npm install
-
-# 2. Build da aplicação React
-npm run build
-
-# 3. Adicionar plataforma Android (primeira vez)
-npx @capacitor/cli add android
-
-# 4. Sincronizar arquivos
-npx @capacitor/cli sync android
-
-# 5. Abrir Android Studio
-npx @capacitor/cli open android
-
-# 6. Compilar APK no Android Studio
-# - Clique em Build → Build Bundle(s)/APK(s) → Build APK(s)
-```
-
-## 🔐 Configurar Assinatura Digital (Importante!)
-
-Para publicar na Play Store, você precisa assinar o APK digitalmente.
-
-### Gerar Chave de Assinatura
-
-```bash
-keytool -genkey -v -keystore doctor-key.keystore \
-  -keyalg RSA -keysize 2048 -validity 10000 \
-  -alias doctor-key
-```
-
-### Configurar Secrets no GitHub
-
-Vá para **Settings → Secrets and variables → Actions** e adicione:
-
-| Secret | Descrição |
-|--------|-----------|
-| `SIGNING_KEY` | Chave em base64 (veja abaixo) |
-| `KEY_ALIAS` | Nome da chave (ex: `doctor-key`) |
-| `KEYSTORE_PASSWORD` | Senha da keystore |
-| `KEY_PASSWORD` | Senha da chave |
-
-#### Converter Keystore para Base64
-
-```bash
-base64 doctor-key.keystore | tr -d '\n' | xclip -selection clipboard
-```
-
-Depois cole o resultado no GitHub Secret `SIGNING_KEY`.
-
-## 📦 Saída do Build
-
-O APK gerado fica em:
-```
-android/app/build/outputs/apk/release/app-release-unsigned.apk
-```
-
-## 📥 Como Instalar no Android
-
-### Mobile
-1. Baixe o APK para seu phone
-2. Vá em **Configurações → Segurança** e ative "Fontes desconhecidas"
-3. Abra o arquivo APK
-4. Toque em "Instalar"
-
-### Android TV
-1. Use um navegador no Android TV ou ADB
-2. Baixe o APK
-3. Execute: `adb install doctor-*.apk`
-
-## 🔄 Atualizar a App
-
-### Via GitHub Actions (Automático)
-Simplesmente faça push para `main`:
-```bash
-git add .
-git commit -m "Nova versão da app"
-git push origin main
-```
-
-### Manual (Local)
-```bash
-npm run build
-npx @capacitor/cli sync android
-cd android && ./gradlew assembleRelease
-```
-
-## 🐛 Solução de Problemas
-
-### Erro: "Gradle sync failed"
-```bash
-cd android
-./gradlew clean
-./gradlew sync
-```
-
-### Erro: "SDK not found"
-```bash
-# Instale o SDK correto
-sdkmanager "platforms;android-34"
-sdkmanager "build-tools;34.0.0"
-```
-
-### App não abre
-- Verifique `capacitor.config.ts`
-- Certifique-se de que `dist/` foi gerado
-- Execute `npm run build` antes de sincronizar
-
-## 📊 Versioning
-
-Use tags para marcar releases:
-```bash
-git tag v1.0.0
-git push origin v1.0.0
-```
-
-Ou dispare o workflow manualmente com versão:
-- Vá em **Actions → Build APK → Run workflow**
-- Insira a versão desejada
-
-## 🎯 Próximos Passos
-
-1. ✅ Configurar assinatura digital
-2. ✅ Testar em Android TV
-3. ✅ Publicar na Google Play Store
-4. ✅ Configurar auto-update
+4. **Baixa o APK**
+   - Vai em: https://github.com/fornecedor8jm-lang/Doctor-/actions
+   - Clica no workflow "Build APK for Android"
+   - Desce até "Artifacts"
+   - Baixa o arquivo `doctor-cag-X.X.X.apk`
 
 ---
 
-**Dúvidas?** Verifique os logs em **Actions** no GitHub!
+## 📥 Instalar no Android/TV
+
+### Passo 1: Transferir o APK
+- Coloque o arquivo APK no seu Android/TV
+- Use USB, email, ou download direto
+
+### Passo 2: Ativar Instalação de Fontes Desconhecidas
+- **Android Phone:** Configurações → Segurança → Fontes Desconhecidas ✅
+- **Android TV:** Configurações → Segurança → Origens Desconhecidas ✅
+
+### Passo 3: Instalar
+- Abra o arquivo APK
+- Clique em "Instalar"
+- Pronto! 🎉
+
+---
+
+## 🔄 Atualizar a App
+
+Sempre que quiser uma nova versão:
+
+```bash
+git add .
+git commit -m "Nova versão - descrição aqui"
+git push origin main
+```
+
+**Automático!** Um novo APK será gerado em minutos.
+
+---
+
+## 📊 Acompanhar o Build
+
+1. Acesse: https://github.com/fornecedor8jm-lang/Doctor-
+2. Clique em **"Actions"**
+3. Veja o status do workflow em tempo real
+4. Se der erro, clique no workflow para ver os logs
+
+---
+
+## 🎯 Informações do APK
+
+| Info | Valor |
+|------|-------|
+| **App ID** | `com.cag.doctorstreaming` |
+| **Nome** | Doctor Streaming |
+| **Empresa** | CIDADE ALTA DE GALLIFREY |
+| **Tipo** | Debug (Sem Assinatura) |
+| **Compatibilidade** | Android 5.0+ e Android TV |
+
+---
+
+## ⚠️ Importante
+
+- ✅ APK **SEM assinatura digital** (ideal para testes/distribuição interna)
+- ✅ Funciona em **Android Phone e Android TV**
+- ✅ Build automático a cada push
+- ✅ Versão em formato: `doctor-cag-1.0.0.apk`
+
+---
+
+## 🆘 Problemas?
+
+**APK não baixa?**
+- Verifique se o workflow terminou (verde ✅)
+- Scroll down na página do workflow
+
+**App não instala?**
+- Certifique-se que "Fontes desconhecidas" está ativada
+- Tente desinstalar versão antiga antes
+
+**Erro no workflow?**
+- Clique no workflow para ver logs detalhados
+- Procure pela mensagem de erro em vermelho
+
+---
+
+**Pronto para começar! Faça seu primeiro push e veja a magia acontecer! 🚀**
