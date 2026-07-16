@@ -13,7 +13,9 @@ export interface Episode {
   poster: string;
   parts: number;
   season: number;
-  category: 'classic-10' | 'classic-12' | 'spin-off' | 'special' | 'modern';
+  category: 'classic-1' | 'classic-2' | 'classic-7' | 'classic-10' | 'classic-12' | 'spin-off' | 'special' | 'modern';
+  isTeraBox?: boolean;
+  curiosities?: string;
 }
 
 export interface Season {

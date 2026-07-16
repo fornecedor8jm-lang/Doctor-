@@ -117,7 +117,7 @@ Se você já usou o GitHub Actions para compilar o APK e quer apenas baixá-lo r
 2.  **Baixar o APK gerado direto para a sua pasta de Downloads:**
     Substitua o link abaixo pela URL do seu arquivo APK público ou release do GitHub:
     ```bash
-    wget -O ~/storage/shared/Download/doctor-plus.apk "https://github.com/seu-usuario/seu-repositorio/releases/download/v2.1.0/doctor-plus.apk"
+    wget -O ~/storage/shared/Download/doctor-plus.apk "https://github.com/seu-usuario/seu-repositorio/releases/download/v22.9.0/doctor-plus.apk"
     ```
 
 3.  **Instalar o APK baixado pelo terminal:**

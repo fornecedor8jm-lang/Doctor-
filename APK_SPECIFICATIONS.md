@@ -11,7 +11,7 @@ O desenvolvimento, registro e distribuição móvel do aplicativo estão sob a c
 *   **Empresa Desenvolvedora / Proprietária:** CAG (CIDADE ALTA DE GALLIFREY)
 *   **Nome Oficial do Aplicativo (App Name):** Doctor+
 *   **Identificador Único do Pacote (Application ID / Package Name):** `com.cag.doctorstreaming`
-*   **Versão Alvo Atual:** v2.1.0
+*   **Versão Alvo Atual:** v22.9.0
 *   **SDK Android Mínimo Suportado (Min SDK):** API 22 (Android 5.1 - Lollipop)
 *   **SDK Android Alvo (Target SDK):** API 34 (Android 14)
 
@@ -64,13 +64,13 @@ Utiliza as ferramentas de build do Android SDK e Gradle para gerar o arquivo `.a
 
 O aplicativo segue estritamente a convenção de versionamento de três números `M.m.p` alinhada com as atualizações de catálogo e correções de dados do Doctor+:
 
-1.  **M (Major):** Reestruturação total ou mudança estrutural crítica (Ex: Versão v2.0 com abas limpas e novo layout).
-2.  **m (Minor):** Adição de novos blocos massivos de catálogo (Ex: Versão v2.1 adicionando as 15 temporadas modernas).
-3.  **p (Patch):** Correções pontuais de bugs de links, layout, ou ortografia (Ex: v2.1.1 corrigindo arcos como *The Evil of the Daleks*).
+1.  **M (Major):** Reestruturação total ou mudança estrutural crítica (Ex: Versão v22.0 com abas limpas e novo layout).
+2.  **m (Minor):** Adição de novos blocos massivos de catálogo (Ex: Versão v22.9 adicionando as 15 temporadas modernas, spin-offs completo de Sarah Jane, e a série Class).
+3.  **p (Patch):** Correções pontuais de bugs de links, layout, ou ortografia (Ex: v22.9.1 corrigindo arcos como *The Evil of the Daleks*).
 
 No arquivo `android/app/build.gradle`, o controle é mantido através de:
-*   `versionCode`: Um número inteiro incremental que sobe a cada nova build enviada (Ex: `210`).
-*   `versionName`: A string de exibição para o usuário (Ex: `"2.1.0"`).
+*   `versionCode`: Um número inteiro incremental que sobe a cada nova build enviada (Ex: `2290`).
+*   `versionName`: A string de exibição para o usuário (Ex: `"22.9.0"`).
 
 ---
 

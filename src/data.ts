@@ -4,8 +4,12 @@
  */
 
 import { Episode, Season, SiteUpdate } from './types';
+import { SJA_EPISODES } from './sjaData';
+import { CLASS_EPISODES } from './classData';
 
 export const SEASONS: Season[] = [
+  { number: 1, name: 'Temporada 1' },
+  { number: 2, name: 'Temporada 2' },
   { number: 10, name: 'Temporada 10' },
   { number: 12, name: 'Temporada 12' }
 ];
@@ -117,7 +121,301 @@ export const SITE_UPDATES: SiteUpdate[] = [
   }
 ];
 
-export const EPISODES: Episode[] = [
+const BASE_EPISODES: Episode[] = [
+  // --- TEMPORADA 1 (1963-1964) ---
+  {
+    id: 'classic-1-1',
+    title: 'Arco 001 – An Unearthly Child',
+    doctor: 'Primeiro Doutor',
+    year: '1963-1964',
+    synopsis: 'O início de tudo: dois professores descobrem que uma de suas alunas possui conhecimentos incomuns e a seguem até um ferro-velho, onde encontram sua misteriosa cabine policial chamada TARDIS e seu enigmático avô, o Doutor.',
+    videoUrl: 'https://drive.google.com/open?id=1iKG5Bv0QCtTlV_-Eqzd1an-6_DASVNg5',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/OGSFqHTnHUVKTAlV.jpg',
+    parts: 4,
+    season: 1,
+    category: 'classic-1'
+  },
+  {
+    id: 'classic-1-2',
+    title: 'Arco 002 – The Daleks',
+    doctor: 'Primeiro Doutor',
+    year: '1963-1964',
+    synopsis: 'A primeira aparição histórica dos maiores inimigos do Doutor. A TARDIS pousa no planeta Skaro, devastado por uma guerra nuclear, onde os pacíficos Thals e os implacáveis e mutantes Daleks duelam pela sobrevivência.',
+    videoUrl: 'https://drive.google.com/open?id=14XiFPYl-PFwXRUSyaShZ3di8AvWtDWDd',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/mjZcNPvWwHAjGENN.jpg',
+    parts: 7,
+    season: 1,
+    category: 'classic-1'
+  },
+  {
+    id: 'classic-1-3',
+    title: 'Arco 003 – The Edge Of Destruction',
+    doctor: 'Primeiro Doutor',
+    year: '1964',
+    synopsis: 'Uma pequena explosão na TARDIS deixa todos os tripulantes inconscientes e, ao acordarem, começam a agir de forma paranoica e hostil uns com os outros sob uma força misteriosa.',
+    videoUrl: 'https://drive.google.com/open?id=18TjEOTDDa7zIYmlCQiBpXosmudwYP1fi',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/WVquFquprqyvVYBV.jpg',
+    parts: 2,
+    season: 1,
+    category: 'classic-1'
+  },
+  {
+    id: 'classic-1-4',
+    title: 'Arco 004 – Marco Polo',
+    doctor: 'Primeiro Doutor',
+    year: '1964',
+    synopsis: 'A tripulação da TARDIS pousa na Ásia Central em 1289 e encontra o lendário explorador veneziano Marco Polo na sua caravana rumo a Pequim.',
+    videoUrl: 'https://drive.google.com/open?id=1cBSyNbx632jCBUeAL4u9K0qleuKLY1a8',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/rgeMKoFVtAYJgDfP.jpg',
+    parts: 7,
+    season: 1,
+    category: 'classic-1'
+  },
+  {
+    id: 'classic-1-5',
+    title: 'Arco 005 – The Keys of Marinus',
+    doctor: 'Primeiro Doutor',
+    year: '1964',
+    synopsis: 'O Doutor e seus companheiros são recrutados para recuperar as quatro chaves da Consciência de Marinus, um computador de justiça espalhado pelo planeta antes que caiam em mãos erradas.',
+    videoUrl: 'https://drive.google.com/open?id=1q_TLVI9rE5DtlU92Nl6CWJh_BMkH_wmK',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/YNuiVDcrxWlnWfgL.jpg',
+    parts: 6,
+    season: 1,
+    category: 'classic-1'
+  },
+  {
+    id: 'classic-1-6',
+    title: 'Arco 006 – The Aztecs',
+    doctor: 'Primeiro Doutor',
+    year: '1964',
+    synopsis: 'A TARDIS materializa-se no México do século XV. Barbara é confundida com a reencarnação do sumo sacerdote asteca Yetaxa e tenta usar sua influência para abolir os sacrifícios humanos.',
+    videoUrl: 'https://drive.google.com/open?id=12PeRPVOV0XMc9ibH1Ufycq4LivBh3Jx4',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/FGESewUWVLyJhBhU.jpg',
+    parts: 4,
+    season: 1,
+    category: 'classic-1'
+  },
+  {
+    id: 'classic-1-7',
+    title: 'Arco 007 – The Sensorites',
+    doctor: 'Primeiro Doutor',
+    year: '1964',
+    synopsis: 'Uma misteriosa raça telepática conhecida como os Sensorites mantém uma tripulação humana como refém e o Doutor precisa intervir para negociar a paz e descobrir as verdadeiras intenções deles.',
+    videoUrl: 'https://drive.google.com/open?id=1_CekLYcI7GxzIYqBJL2HAj3rueBU-Li8',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/hTVEEbbleuRgUzvT.jpg',
+    parts: 6,
+    season: 1,
+    category: 'classic-1'
+  },
+  {
+    id: 'classic-1-8',
+    title: 'Arco 008 – The Reign of Terror',
+    doctor: 'Primeiro Doutor',
+    year: '1964',
+    synopsis: 'O Doutor e seus amigos materializam-se na França durante a violenta Revolução Francesa de 1794, onde se veem envolvidos nos perigosos eventos do Reinado do Terror liderado por Robespierre.',
+    videoUrl: 'https://drive.google.com/open?id=11-Ei_0Slulf54_DKtnw7VCd5z2XFhv7c',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/cllATxfbxhuuPymY.jpg',
+    parts: 6,
+    season: 1,
+    category: 'classic-1'
+  },
+
+  // --- TEMPORADA 2 (1964-1965) ---
+  {
+    id: 'classic-2-1',
+    title: 'Arco 009 – Planet of Giants',
+    doctor: 'Primeiro Doutor',
+    year: '1964',
+    synopsis: 'A TARDIS sofre um mau funcionamento de tamanho, reduzindo o Doutor, Susan, Ian e Barbara a meros centímetros de altura ao pousarem em um jardim inglês comum.',
+    videoUrl: 'https://drive.google.com/open?id=1nGQKJMQGDz2qgFDK9yDQTjzCex2CP5gI',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/UiAnZeZuTvVHjgLI.jpg',
+    parts: 3,
+    season: 2,
+    category: 'classic-2'
+  },
+  {
+    id: 'classic-2-2',
+    title: 'Arco 010 – The Dalek Invasion of Earth',
+    doctor: 'Primeiro Doutor',
+    year: '1964',
+    synopsis: 'O Doutor e seus companheiros retornam a Londres, mas descobrem que a Terra do século XXII foi invadida e escravizada pelos impiedosos Daleks.',
+    videoUrl: 'https://drive.google.com/open?id=13HxX6nDAT6GkdUCRuSHbDOdoerKeUMX5',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/SiiLZpEuXRkuhCHX.jpg',
+    parts: 6,
+    season: 2,
+    category: 'classic-2'
+  },
+  {
+    id: 'classic-2-3',
+    title: 'Arco 011 – The Rescue',
+    doctor: 'Primeiro Doutor',
+    year: '1965',
+    synopsis: 'Em busca de novos rumos, o Doutor encontra os sobreviventes de uma nave acidentada sob o controle do misterioso e temível Bennett.',
+    videoUrl: 'https://drive.google.com/open?id=1BmEbdIcJ6NjbXZc8phYGG6vVmFbnQQtL',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/MyCsVMGZOeChfwsM.jpg',
+    parts: 2,
+    season: 2,
+    category: 'classic-2'
+  },
+  {
+    id: 'classic-2-4',
+    title: 'Arco 012 – The Romans',
+    doctor: 'Primeiro Doutor',
+    year: '1965',
+    synopsis: 'Uma relaxante folga na Itália do século I se transforma em caos absoluto quando o Doutor é confundido com um grande músico e Ian e Barbara são vendidos como escravos.',
+    videoUrl: 'https://drive.google.com/open?id=1JbkpF1caTFGszeebKzYu_PMK7rRUY_bF',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/qAazqcXmhStGCsVl.jpg',
+    parts: 4,
+    season: 2,
+    category: 'classic-2'
+  },
+  {
+    id: 'classic-2-5',
+    title: 'Arco 013 – The Web Planet',
+    doctor: 'Primeiro Doutor',
+    year: '1965',
+    synopsis: 'A TARDIS é arrastada para o estranho e inóspito planeta Vortis, onde formigas gigantes lutam contra criaturas parecidas com borboletas sob o controle do malévolo Animus.',
+    videoUrl: 'https://drive.google.com/open?id=1y40PmnjfMSXm8ROv3VdPpAux1m5CzUyY',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/BzPURUKxFGYqFudJ.jpg',
+    parts: 6,
+    season: 2,
+    category: 'classic-2'
+  },
+  {
+    id: 'classic-2-6',
+    title: 'Arco 014 – The Crusade',
+    doctor: 'Primeiro Doutor',
+    year: '1965',
+    synopsis: 'A TARDIS materializa-se na Palestina do século XII, durante a Terceira Cruzada. Barbara é capturada pelos sarracenos e o Doutor precisa intervir junto a Ricardo Coração de Leão.',
+    videoUrl: 'https://drive.google.com/open?id=1Do4Jhepl8rqIwL0lSOhg4n64ZHWLK6nh',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/FUPhYFVYOxqFpgIz.jpg',
+    parts: 4,
+    season: 2,
+    category: 'classic-2'
+  },
+  {
+    id: 'classic-2-7',
+    title: 'Arco 015 – The Space Museum',
+    doctor: 'Primeiro Doutor',
+    year: '1965',
+    synopsis: 'Ao chegarem no planeta Xeros, a tripulação descobre uma exposição fantasmagórica que prevê seu próprio futuro sombrio como itens de museu.',
+    videoUrl: 'https://drive.google.com/open?id=1oRqptKGo5Z6UtCFkdaUV19X-f3jGAigR',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/XTCYHfRiVqJYUrmX.jpg',
+    parts: 4,
+    season: 2,
+    category: 'classic-2'
+  },
+  {
+    id: 'classic-2-8',
+    title: 'Arco 016 – The Chase',
+    doctor: 'Primeiro Doutor',
+    year: '1965',
+    synopsis: 'Os Daleks constroem sua própria máquina do tempo e dão início a uma implacável perseguição multitemporal para destruir o Doutor e seus amigos.',
+    videoUrl: 'https://drive.google.com/open?id=1zJPAii0PPLSU7O2eSqpIu12okAToGjv5',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/FyFBDmtzTywAVssN.jpg',
+    parts: 6,
+    season: 2,
+    category: 'classic-2'
+  },
+  {
+    id: 'classic-2-9',
+    title: 'Arco 017 – The Time Meddler',
+    doctor: 'Primeiro Doutor',
+    year: '1965',
+    synopsis: 'O Doutor e seus companheiros chegam na Inglaterra saxônica de 1066 e descobrem que outro membro de sua própria espécie está tentando mudar o rumo da história mundial.',
+    videoUrl: 'https://drive.google.com/open?id=1uuMa7IdhvwNrt4c304JqaHbWcuBDNw4I',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/SaNTokOUqIlMMmCe.jpg',
+    parts: 4,
+    season: 2,
+    category: 'classic-2'
+  },
+
+  // --- TEMPORADA 7 (1970) ---
+  {
+    id: 'classic-7-1',
+    title: 'Arco 01 – Spearhead from Space',
+    doctor: 'Terceiro Doutor',
+    year: '1970',
+    synopsis: 'O recém-regenerado Terceiro Doutor exila-se na Terra e deve deter uma invasão de Autons controlados pela Consciência Nestene.',
+    videoUrl: 'https://drive.google.com/file/d/1XItbNbDw1lb5UtHYIht3LinjCyOqy3YV/view',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/WfbTdkFHuzQfIRNK.jpg',
+    parts: 4,
+    season: 7,
+    category: 'classic-7'
+  },
+  {
+    id: 'classic-7-2',
+    title: 'Arco 02 – The Silurians (Parte 1)',
+    doctor: 'Terceiro Doutor',
+    year: '1970',
+    synopsis: 'O Doutor investiga misteriosos picos de energia em uma central de pesquisas nucleares subterrânea, deparando-se com os Silurians, répteis inteligentes ancestrais da Terra.',
+    videoUrl: 'https://drive.google.com/file/d/1ssTvDNRKa7_IPS_9IKcjCrfblDBBh9nX/view',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/GBaEBOStufPRBPes.jpg',
+    parts: 3,
+    season: 7,
+    category: 'classic-7'
+  },
+  {
+    id: 'classic-7-3',
+    title: 'Arco 03 – The Silurians (Parte 2)',
+    doctor: 'Terceiro Doutor',
+    year: '1970',
+    synopsis: 'A tensão escala quando os Silurians ameaçam exterminar a humanidade com um vírus mortal, e o Doutor tenta mediar uma paz frágil antes que a UNIT tome medidas drásticas.',
+    videoUrl: 'https://drive.google.com/file/d/1m9GLPW_11Xjzz7FzmsYIwtgB85iMYU3m/view',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/ZlXPDqTPMdwaCwbJ.jpg',
+    parts: 4,
+    season: 7,
+    category: 'classic-7'
+  },
+  {
+    id: 'classic-7-4',
+    title: 'Arco 04 – The Ambassadors of Death (Parte 1)',
+    doctor: 'Terceiro Doutor',
+    year: '1970',
+    synopsis: 'A sonda espacial Mars Probe 7 retorna à Terra após anos em silêncio, mas o contato com os astronautas é perdido, iniciando uma corrida secreta para resgatá-los.',
+    videoUrl: 'https://drive.google.com/file/d/1ML6gkMAklW9TvZdOZTqk6YPkiEGZRcFD/view',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/pkXqqlBovzdyhspW.jpg',
+    parts: 3,
+    season: 7,
+    category: 'classic-7'
+  },
+  {
+    id: 'classic-7-5',
+    title: 'Arco 05 – The Ambassadors of Death (Parte 2)',
+    doctor: 'Terceiro Doutor',
+    year: '1970',
+    synopsis: 'O Doutor e a UNIT descobrem que alienígenas sequestraram os astronautas humanos e que uma conspiração militar dentro da própria Terra ameaça iniciar um conflito interplanetário fatal.',
+    videoUrl: '',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/ggwlxGBxrlqAkuST.jpg',
+    parts: 4,
+    season: 7,
+    category: 'classic-7'
+  },
+  {
+    id: 'classic-7-6',
+    title: 'Arco 06 – Inferno (Parte 1)',
+    doctor: 'Terceiro Doutor',
+    year: '1970',
+    synopsis: 'O Doutor atua como consultor em um projeto de perfuração profunda da crosta terrestre que libera uma estranha gosma verde capaz de transformar humanos em bestas selvagens.',
+    videoUrl: '',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/CWBCkyjmrFUAwfZq.jpg',
+    parts: 3,
+    season: 7,
+    category: 'classic-7'
+  },
+  {
+    id: 'classic-7-7',
+    title: 'Arco 07 – Inferno (Parte 2)',
+    doctor: 'Terceiro Doutor',
+    year: '1970',
+    synopsis: 'Após ser acidentalmente enviado para uma dimensão paralela apocalíptica, o Doutor corre contra o tempo para retornar ao seu universo original e impedir que a perfuração destrua a Terra.',
+    videoUrl: '',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/UOIrLtDPiPwfWJng.jpg',
+    parts: 4,
+    season: 7,
+    category: 'classic-7'
+  },
+
   // --- TEMPORADA 10 ---
   {
     id: 'frontier-1',
@@ -364,6 +662,80 @@ export const EPISODES: Episode[] = [
     category: 'spin-off'
   },
 
+  // --- TALES OF THE TARDIS (2023) ---
+  {
+    id: 'tales-tardis-1',
+    title: 'Tales of the TARDIS — Earthshock',
+    doctor: 'Quinto Doutor & Tegan',
+    year: '2023',
+    synopsis: 'O Quinto Doutor e Tegan se reúnem para relembrar a trágica e marcante batalha contra os Cybermen.',
+    videoUrl: 'https://drive.google.com/file/d/1r43FK32Zd_1-GYfcr27KO82_-pW5fbrq/view?usp=sharing',
+    poster: 'https://drive.google.com/thumbnail?id=1TZU5i1Ift3Vg7E3js36cqrrUcsg4pOUK&sz=w800',
+    parts: 1,
+    season: 1,
+    category: 'spin-off'
+  },
+  {
+    id: 'tales-tardis-2',
+    title: 'Tales of the TARDIS — The Mind Robber',
+    doctor: 'Jamie & Zoe',
+    year: '2023',
+    synopsis: 'Jamie e Zoe se encontram novamente para recordar suas jornadas surreais na Terra da Ficção.',
+    videoUrl: 'https://drive.google.com/file/d/1w2lVryoyFaVslKzNfyRFPXEdj8uUHS3P/view?usp=drive_link',
+    poster: 'https://drive.google.com/thumbnail?id=1TZU5i1Ift3Vg7E3js36cqrrUcsg4pOUK&sz=w800',
+    parts: 1,
+    season: 1,
+    category: 'spin-off'
+  },
+  {
+    id: 'tales-tardis-3',
+    title: 'Tales of the TARDIS — Vengeance on Varos',
+    doctor: 'Sexto Doutor & Peri',
+    year: '2023',
+    synopsis: 'O Sexto Doutor e Peri relembram os perigos televisivos e sombrios do planeta Varos.',
+    videoUrl: 'https://drive.google.com/file/d/1rrdtzDtQW3AcWPNovTNTexoKWi0TIIoo/view?usp=drive_link',
+    poster: 'https://drive.google.com/thumbnail?id=1TZU5i1Ift3Vg7E3js36cqrrUcsg4pOUK&sz=w800',
+    parts: 1,
+    season: 1,
+    category: 'spin-off'
+  },
+  {
+    id: 'tales-tardis-4',
+    title: 'Tales of the TARDIS — The Three Doctors',
+    doctor: 'Jo Jones & Clyde Langer',
+    year: '2023',
+    synopsis: 'Jo Jones (Jo Grant) e Clyde Langer se encontram e ela relata a épica aliança entre três encarnações do Doutor.',
+    videoUrl: 'https://drive.google.com/file/d/1gGTenHv3p5YNAfS2oulVFQqzjJN-_gCh/view?usp=drive_link',
+    poster: 'https://drive.google.com/thumbnail?id=1TZU5i1Ift3Vg7E3js36cqrrUcsg4pOUK&sz=w800',
+    parts: 1,
+    season: 1,
+    category: 'spin-off'
+  },
+  {
+    id: 'tales-tardis-5',
+    title: 'Tales of the TARDIS — The Time Meddler',
+    doctor: 'Steven & Vicki',
+    year: '2023',
+    synopsis: 'Steven e Vicki recordam suas antigas viagens com o Primeiro Doutor e o encontro com o Monge.',
+    videoUrl: 'https://drive.google.com/file/d/1FwZ5kvnv3RcWRFnPgyBL4JTByXH6qoAp/view?usp=sharing',
+    poster: 'https://drive.google.com/thumbnail?id=1TZU5i1Ift3Vg7E3js36cqrrUcsg4pOUK&sz=w800',
+    parts: 1,
+    season: 1,
+    category: 'spin-off'
+  },
+  {
+    id: 'tales-tardis-6',
+    title: 'Tales of the TARDIS — The Curse of Fenric',
+    doctor: 'Sétimo Doutor & Ace',
+    year: '2023',
+    synopsis: 'O Sétimo Doutor e Ace refletem sobre o jogo de xadrez cósmico e os horrores manipuladores de Fenric.',
+    videoUrl: 'https://drive.google.com/file/d/1C7slCYOcUkK6iIrUeJeVWvJ_PwApW3Ae/view?usp=drive_link',
+    poster: 'https://drive.google.com/thumbnail?id=1TZU5i1Ift3Vg7E3js36cqrrUcsg4pOUK&sz=w800',
+    parts: 1,
+    season: 1,
+    category: 'spin-off'
+  },
+
   // --- ESPECIAIS & EXTRAS ---
   {
     id: 'evil-daleks',
@@ -372,7 +744,7 @@ export const EPISODES: Episode[] = [
     year: '1967',
     synopsis: 'Este arco icônico foi a primeira aparição do imponente Imperador Dalek na série de TV. Uma obra-prima gótica originalmente apagada dos arquivos da BBC nos anos 60 e carinhosamente reconstituída em animação oficial.',
     videoUrl: 'https://drive.google.com/drive/folders/1n5HHdB8VokzkCv5CqDJxq8nqgUTsnm5w?usp=sharing',
-    poster: 'https://files.catbox.moe/s9hgn6.jpg',
+    poster: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/hySbGHmOVRNvdxEv.jpg',
     parts: 1,
     season: 4,
     category: 'special'
@@ -607,3 +979,82 @@ export const EPISODES: Episode[] = [
     category: 'modern'
   }
 ];
+
+const MANUS_CLASSIC_POSTERS: Record<number, string> = {
+  8: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627992424/WRMrCePEdKzXmnHq.png',
+  9: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627992424/mJFfMHFTREywmctq.png',
+  10: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/TvoxVUtSSTnAOTbc.jpg',
+  12: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/cdsAxXuGaSNuRVCm.jpg',
+  13: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627992424/bBnVidVWQeOacKKs.png',
+  14: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627992424/EKBSiEdbDfomXirG.png',
+  15: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627992424/GiTeBytNtwmICbyU.png',
+  17: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627992424/teqBsgwLsdLPNuBT.png',
+  18: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627992424/penirzppAGdcSumE.png',
+  19: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627992424/HaAtmAkYyUVgciPj.png'
+};
+
+const MANUS_TORCHWOOD_POSTERS: Record<number, string> = {
+  1: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/ebNtHNDToTujPzFo.jpg',
+  2: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627992424/wzHsWpjBsnMulOde.png',
+  3: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627992424/UYDRKiUULQNGNtKs.png',
+  4: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627992424/mYdaWmePTIDVoMJB.png'
+};
+
+const MANUS_SJA_POSTERS: Record<number, string> = {
+  1: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627992424/erKdxCREeFUEaDoM.png',
+  2: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627992424/KDCMSJJqcMELktDQ.png',
+  3: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627992424/PcHpGyilBjFJFadV.png',
+  4: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627992424/CsapkmnxjBtTodbJ.png',
+  5: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627992424/xmMaPQGXhwtUtxoZ.png'
+};
+
+const MANUS_MODERN_POSTERS: Record<number, string> = {
+  1: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/yUbmcFXXsfGDdCRQ.jpg',
+  2: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/wjFHomzMgBujrBDf.jpg',
+  3: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/GkOZLevCgEUDGnYe.jpg',
+  4: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/etMSugpvnQsCUrHu.jpg',
+  5: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/jZCjtwzJvPQPmUAd.jpg',
+  6: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/KMkjHIwIEmqVGDiU.jpg',
+  7: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/DuvGHllYKhhfbTiU.jpg',
+  8: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/aabYOkCufjBtJVlS.jpg',
+  9: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/QLaMzpqMcnqUaSoA.jpg',
+  10: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/nzuhvCtOPwIpaTKW.jpg',
+  11: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/drGqJZBhQhYIblIl.jpg',
+  12: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/CwlJVYKvALSYZGzs.jpg',
+  13: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/MbcjxbGdpdtMWMTt.jpg',
+  14: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/pVjpVDakAmeNdAli.jpg',
+  15: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/yYaWoGIJuBBNBaMi.jpg'
+};
+
+const MANUS_CLASS_POSTER = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627992424/UySUAEtBioaVdxLp.png';
+const MANUS_SPECIAL_2023_POSTER = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/MymhZxoKyEchtYrQ.jpg';
+const MANUS_ADVENTURE_SPACE_TIME_POSTER = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/RPKkBydOAptItEPD.jpg';
+const MANUS_K9_ADVENTURES_POSTER = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663627993377/DIDZKhCOrIQzQOhC.jpg';
+
+const RAW_EPISODES: Episode[] = [...BASE_EPISODES, ...SJA_EPISODES, ...CLASS_EPISODES];
+
+export const EPISODES: Episode[] = RAW_EPISODES.map(ep => {
+  let poster = ep.poster;
+
+  if (ep.category && ep.category.startsWith('classic')) {
+    poster = MANUS_CLASSIC_POSTERS[ep.season] || poster;
+  } else if (ep.id.startsWith('torchwood-')) {
+    poster = MANUS_TORCHWOOD_POSTERS[ep.season] || poster;
+  } else if (ep.id.startsWith('tsja-') || ep.id.startsWith('sja-')) {
+    poster = MANUS_SJA_POSTERS[ep.season] || poster;
+  } else if (ep.id.startsWith('class-') || ep.id === 'class-ost') {
+    poster = MANUS_CLASS_POSTER;
+  } else if (ep.category === 'modern') {
+    poster = MANUS_MODERN_POSTERS[ep.season] || poster;
+  } else if (ep.id.startsWith('spec-2023-')) {
+    poster = MANUS_SPECIAL_2023_POSTER;
+  } else if (ep.id === 'adventure-space-time') {
+    poster = MANUS_ADVENTURE_SPACE_TIME_POSTER;
+  } else if (ep.id === 'k-9-series') {
+    poster = MANUS_K9_ADVENTURES_POSTER;
+  } else if (poster.includes('catbox.moe')) {
+    poster = 'https://image.tmdb.org/t/p/w500/49WJgS5H3A6CuLIYirvIK3K667T.jpg';
+  }
+
+  return { ...ep, poster };
+});

@@ -104,14 +104,31 @@ A aplicação foi estruturada usando tecnologias web modernas que garantem peso 
 
 ## ⚙️ Histórico de Versões & Notas de Atualização
 
-### v2.1 (Versão Atual)
-*   **Lançamento da Série Moderna:** Adição das temporadas 1 a 15 de Doctor Who Moderna de Christopher Eccleston a Ncuti Gatwa.
-*   **Filtros de Busca Avançados:** Barra de pesquisa em tempo real agora cobre também todos os dados e doutores da era moderna.
-*   **Ajuste Fino de Dados:** Correção do arco *The Evil of the Daleks* para link unificado de exibição, eliminando erros de navegação.
-*   **Realinhamento de Créditos:** Reestruturação da seção institucional para atribuir formalmente as contribuições das legendas clássicas (**Universo Who**), dos spin-offs/especiais (**MahBlue Series**) e do acervo moderno (**JC**).
-*   **Aprimoramento Estético:** Integração do pôster oficial de temporadas como plano de fundo artístico na aba moderna para imersão completa dos usuários.
+### v27.77 (Versão Atual)
+*   **Atualização Massiva de Pôsteres & Alinhamento de Metadados:** Integração total e padronização de imagens de alta definição para as produções clássicas e especiais da franquia, incluindo a Série Clássica, Torchwood (Temporadas 1 a 4), The Evil of the Daleks, Uma Aventura no Espaço e Tempo, Especiais 2023, e Class.
+*   **Consolidação da Experiência Visual de Streaming:** Ajuste fino em overlays, gradientes em vermelho e preto, e navegação adaptada para uma experiência de streaming profissional imersiva.
+*   **Salto Proporcional de Versão:** Evolução estrutural da plataforma da versão **22.9** diretamente para a **27.77**, em perfeito alinhamento com a nova diretiva de versionamento por impacto de volume e transformação de usabilidade.
 
-### v2.0
+### v22.9
+*   **Adição Massiva do Spin-Off Completo (Class - 2016):** Disponibilização de toda a primeira temporada do aclamado spin-off juvenil *Class*, ambientado na Coal Hill Academy, incluindo o icônico pôster de divulgação oficial e todos os 8 episódios totalmente indexados com links diretos seguros do Google Drive.
+*   **Trilha Sonora Inclusa:** Adição da marcante trilha sonora original de *Class* composta por Blair Mowat, reunida em uma pasta dedicada no Google Drive para os fãs curtirem as músicas da série.
+*   **Salto Proporcional de Versão:** Evolução estrutural da plataforma da versão **17.9** diretamente para a **22.9**, em perfeito alinhamento com a nova diretiva de versionamento por impacto de volume e transformação de usabilidade.
+
+### v17.9
+*   **Adição Massiva do Spin-Off Completo (The Sarah Jane Adventures):** Disponibilização de todas as 5 temporadas originais completas, de 2007 a 2011, incluindo o filme piloto *Invasion of the Bane* e o documentário tributo especial *My Sarah Jane* — totalizando mais de 50 episódios com links diretos no Google Drive fornecidos por **JC** / **MahBlue**.
+*   **Correção de Pôster Único de Sarah Jane:** Padronização completa do pôster icônico oficial para todas as exibições relacionadas à Sarah Jane no catálogo do aplicativo.
+*   **Salto Proporcional de Versão:** Evolução estrutural da plataforma da versão 12.9 diretamente para a **17.9**, em perfeito alinhamento com a nova diretiva de versionamento por impacto de volume e transformação de usabilidade.
+
+### v12.9
+*   **Conformidade com a Google Play Store:** Ajuste fino completo no Modo TV do aplicativo para atender plenamente às diretrizes de qualidade do Google Play Console.
+*   **Resolução do CSS Fantasma (FOUC):** Implementação de mecanismos automáticos de cache-busting dinâmico usando empacotamento com hashes do Vite e escopo rígido de estilos (CSS Scoped/Tailwind modular) para garantir que a interface jamais carregue sem estilização em TVs ou Set-Top Boxes.
+*   **Layout Fixo Sem Scroll Vertical:** O Modo TV agora é 100% estático e adaptado à viewport (16:9), sem barras de rolagem vertical incômodas.
+*   **Foco Direcional Ativo (D-Pad):** Adição de feedback visual proeminente de foco (outlines em amarelo-ouro e escala sutil) em botões e cards interativos para navegação intuitiva por controle remoto.
+*   **Consistência de Contraste e Identidade:** Restauração do tema escuro cósmico imersivo do aplicativo em todas as telas de TV para evitar fadiga visual em salas de estar.
+*   **Lançamento da Série Moderna:** Integração total das temporadas 1 a 15 de Doctor Who Moderna, de Christopher Eccleston a Ncuti Gatwa, disponibilizada por **JC**.
+*   **Ajuste Fino de Dados:** Correção do arco *The Evil of the Daleks* para link unificado de exibição, eliminando erros de navegação.
+
+### v12.0
 *   **Reestruturação do Layout:** Separação estrita de mídias por abas de categorias (*Clássica*, *Moderna*, *Spin-offs*, *Especiais* e *Configurações*), eliminando sobreposição visual.
 *   **Implementação do Painel de Controle:** Nova aba centralizada reunindo curiosidades da série, alteração de logos da plataforma, modo lite para Smart TVs e histórico de atualizações.
 *   **Fim do Player Embutido Instável:** Substituição completa por links diretos seguros do Google Drive oficial para melhor compatibilidade com Smart TVs e celulares.
